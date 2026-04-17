@@ -13,11 +13,11 @@ app.get("/movies{/:startingIdx}{/:perPage}", (req, res) => {
   var perPage = +req.params.perPage || 10;
   var fd = fs.readFileSync("movies.json").toString();
   var movies = JSON.parse(fd).slice(startingIdx, startingIdx + perPage);
-  console.log("fd:",JSON.parse(fd).slice(startingIdx, startingIdx + perPage))
+  //console.log("fd:",JSON.parse(fd).slice(startingIdx, startingIdx + perPage))
   res.render("movies", { movies, startingIdx, perPage });
   // res.send(movies);
 });
 
 app.listen(3600, () => {
-  console.log("server 3600 port lo vintundi");
+  console.log("server 3600 port lo vintundi : http://localhost:3600/movies");
 });
